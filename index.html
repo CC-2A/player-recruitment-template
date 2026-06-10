@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Rayan Cappai - midfielder recruitment CV with profile, video, CV and contact details. Reusable multilingual football player recruitment website template.">
-  <title>Rayan Cappai | Football Player Recruitment CV</title>
+  <meta name="description" content="Generic football player recruitment CV template with profile, video, CV and contact sections. Edit player-data.js to create a new player profile.">
+  <title>Player Recruitment Profile | Football CV Template</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="#top" aria-label="Go to top">
         <span class="brand-mark" aria-hidden="true">⚽</span>
-        <span class="brand-text" data-bind="name">Rayan Cappai</span>
+        <span class="brand-text" data-bind="name">Player Name</span>
       </a>
       <nav class="nav-links" aria-label="Section navigation">
         <a href="#profile" data-i18n="navProfile">Profile</a>
@@ -37,29 +37,24 @@
       <section class="hero section" data-section="hero">
         <div class="hero-copy">
           <p class="eyebrow" data-i18n="eyebrow">Recruitment CV</p>
-          <h1 data-bind="name">Rayan Cappai</h1>
-          <p class="hero-position" data-bind-i18n="player.position">Midfielder</p>
-          <p class="hero-headline" data-bind-i18n="content.heroHeadline">Dynamic midfielder seeking the next competitive football opportunity.</p>
-          <div class="hero-actions" id="heroActions">
-            <a class="btn primary" href="#media">Watch video</a>
-            <a class="btn" href="assets/cv/rayan-cappai-cv.pdf">Download CV</a>
-            <a class="btn" href="mailto:recruitment@example.com">Email</a>
-          </div>
+          <h1 data-bind="name">Player Name</h1>
+          <p class="hero-position" data-bind-i18n="player.position">Main Position</p>
+          <p class="hero-headline" data-bind-i18n="content.heroHeadline">Recruitment Profile</p>
+          <p class="template-note" data-i18n="templateNote">Edit player-data.js to create a new player profile.</p>
+          <div class="hero-actions" id="heroActions"></div>
         </div>
         <aside class="hero-card" aria-label="Player snapshot">
           <div class="pitch-lines" aria-hidden="true"></div>
-          <div class="avatar" data-initials aria-label="Rayan Cappai">RC</div>
+          <div class="avatar" data-initials aria-label="Player Name">PN</div>
           <dl id="snapshotList" class="snapshot-list">
-            <div class="snapshot-item"><dt>Position</dt><dd>Midfielder</dd></div>
-            <div class="snapshot-item"><dt>Foot</dt><dd>Right</dd></div>
-            <div class="snapshot-item"><dt>Height</dt><dd>178 cm</dd></div>
-            <div class="snapshot-item"><dt>Weight</dt><dd>72 kg</dd></div>
-            <div class="snapshot-item"><dt>Date of birth</dt><dd>May 18, 2004</dd></div>
-            <div class="snapshot-item"><dt>Nationality</dt><dd>French</dd></div>
-            <div class="snapshot-item"><dt>Current club</dt><dd>Available for recruitment opportunities</dd></div>
-            <div class="snapshot-item"><dt>Previous college</dt><dd>U.S. college football pathway</dd></div>
-            <div class="snapshot-item"><dt>Location</dt><dd>United States / France</dd></div>
-            <div class="snapshot-item"><dt>Availability</dt><dd>Available for trials, preseason invitations and collegiate / semi-professional opportunities.</dd></div>
+            <div class="snapshot-item"><dt>Position</dt><dd>Main Position</dd></div>
+            <div class="snapshot-item"><dt>Foot</dt><dd>Preferred Foot</dd></div>
+            <div class="snapshot-item"><dt>Height</dt><dd>Height</dd></div>
+            <div class="snapshot-item"><dt>Weight</dt><dd>Weight</dd></div>
+            <div class="snapshot-item"><dt>Nationality</dt><dd>Nationality</dd></div>
+            <div class="snapshot-item"><dt>Current club</dt><dd>Current Club</dd></div>
+            <div class="snapshot-item"><dt>Location</dt><dd>Location</dd></div>
+            <div class="snapshot-item"><dt>Availability</dt><dd>Availability</dd></div>
           </dl>
         </aside>
       </section>
@@ -70,11 +65,10 @@
           <h2 data-i18n="profileTitle">Recruitment summary</h2>
         </div>
         <div class="content-card">
-          <p data-bind-i18n="content.recruitmentSummary">A mobile, technically secure midfielder with a strong work rate, clean first touch and the ability to connect defensive recovery with forward progression. This template is designed for coaches and recruiters to evaluate profile, video, CV and contact details quickly.</p>
+          <p data-bind-i18n="content.recruitmentSummary">Recruitment Summary</p>
           <div class="tag-list" id="roleTags">
-            <span class="tag">Box-to-box midfielder</span>
-            <span class="tag">Central midfielder</span>
-            <span class="tag">Attacking support</span>
+            <span class="tag">Player Role</span>
+            <span class="tag">Secondary Role</span>
           </div>
         </div>
       </section>
@@ -83,22 +77,18 @@
         <div class="content-card feature-card" data-field="content.careerSummary">
           <p class="eyebrow" data-i18n="careerEyebrow">Career</p>
           <h2 data-i18n="careerTitle">Career summary</h2>
-          <p data-bind-i18n="content.careerSummary">Developed through a competitive football environment with experience adapting between European-style training and the physical demands of the U.S. pathway. Comfortable operating in central areas, supporting both build-up phases and defensive transitions.</p>
+          <p data-bind-i18n="content.careerSummary">Career Summary</p>
         </div>
         <div class="content-card" data-field="content.playingStyle">
           <p class="eyebrow" data-i18n="styleEyebrow">Style</p>
           <h2 data-i18n="styleTitle">Playing style</h2>
-          <p data-bind-i18n="content.playingStyle">Prefers to receive between lines or underneath pressure, play forward when available and maintain team compactness when possession is lost. Best used in a midfield three or as a central midfielder with license to support both boxes.</p>
+          <p data-bind-i18n="content.playingStyle">Playing Style</p>
         </div>
         <div class="content-card" data-field="content.strengths">
           <p class="eyebrow" data-i18n="strengthsEyebrow">Strengths</p>
           <h2 data-i18n="strengthsTitle">Key strengths</h2>
           <ul class="check-list" id="strengthsList">
-            <li>High work rate and repeat sprint capacity</li>
-            <li>Clean passing rhythm under pressure</li>
-            <li>Positive first touch to escape pressure</li>
-            <li>Ball recovery and transition awareness</li>
-            <li>Coachable mindset and professional presentation</li>
+            <li>Key Strengths</li>
           </ul>
         </div>
         <div class="content-card" data-field="content.academicsEligibility">
@@ -113,21 +103,7 @@
           <p class="eyebrow" data-i18n="mediaEyebrow">Media</p>
           <h2 data-i18n="mediaTitle">Video, CV and photos</h2>
         </div>
-        <div class="media-grid" id="mediaGrid">
-          <article class="media-card video-card">
-            <iframe class="video-frame" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Recent highlight video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <div class="media-card-body">
-              <h3>Recent highlight video</h3>
-              <a class="btn" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Open</a>
-            </div>
-          </article>
-          <article class="media-card">
-            <div class="media-card-body">
-              <h3>Rayan Cappai recruitment CV</h3>
-              <a class="btn primary" href="assets/cv/rayan-cappai-cv.pdf">Download CV</a>
-            </div>
-          </article>
-        </div>
+        <div class="media-grid" id="mediaGrid"></div>
       </section>
 
       <section id="contact" class="section contact-section" data-section="contact">
@@ -137,22 +113,20 @@
           <p data-i18n="contactText">Use the available links below to request video, CV details or arrange a conversation.</p>
         </div>
         <div class="contact-card" id="contactCard">
-          <div class="contact-methods">
-            <div class="contact-method"><span>Email</span><a href="mailto:recruitment@example.com">recruitment@example.com</a></div>
-          </div>
+          <p>Contact Information</p>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span data-bind="name">Rayan Cappai</span>
+      <span data-bind="name">Player Name</span>
       <span>·</span>
       <span data-i18n="footerText">Reusable recruitment website template</span>
     </footer>
   </div>
 
   <noscript>
-    <div class="noscript-message">This page includes a complete example profile. Enable JavaScript to switch languages and load the latest configured player data.</div>
+    <div class="noscript-message">This static template can stay blank until player-data.js is edited. Enable JavaScript to switch languages and load the configured player data.</div>
   </noscript>
   <script defer src="player-data.js"></script>
   <script defer src="app.js"></script>

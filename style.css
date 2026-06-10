@@ -90,10 +90,40 @@ button, select { font: inherit; }
 .section { margin: 28px 0; }
 
 .hero {
+  position: relative;
   display: grid;
   gap: 22px;
   align-items: stretch;
   min-height: 620px;
+}
+
+.hero.has-hero-background {
+  isolation: isolate;
+  padding: clamp(14px, 3vw, 24px);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 10px);
+  background-image: var(--hero-background-image);
+  background-position: center;
+  background-size: cover;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.hero.has-hero-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(2, 8, 5, 0.9), rgba(2, 8, 5, 0.62)),
+    radial-gradient(circle at 18% 20%, rgba(40, 209, 124, 0.24), transparent 32rem);
+  pointer-events: none;
+}
+
+.hero.has-hero-background .hero-copy,
+.hero.has-hero-background .hero-card {
+  background: rgba(3, 7, 5, 0.76);
+  backdrop-filter: blur(3px);
 }
 
 .hero-copy,
@@ -151,7 +181,15 @@ h2 { font-size: clamp(2rem, 8vw, 4.4rem); }
   font-size: 1.04rem;
 }
 
+.template-note {
+  max-width: 42ch;
+  margin: 14px 0 0;
+  color: rgba(226, 236, 225, 0.58);
+  font-size: 0.86rem;
+}
+
 .hero-actions, .button-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero-actions:empty { display: none; }
 
 .btn {
   display: inline-flex;

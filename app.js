@@ -48,7 +48,8 @@
       cv: "CV PDF",
       photo: "Photo",
       open: "Open",
-      noContact: "Contact details are available on request."
+      noContact: "Contact Information",
+      templateNote: "Edit player-data.js to create a new player profile."
     },
     fr: {
       navProfile: "Profil",
@@ -93,7 +94,8 @@
       cv: "CV PDF",
       photo: "Photo",
       open: "Ouvrir",
-      noContact: "Les coordonnées sont disponibles sur demande."
+      noContact: "Coordonnées",
+      templateNote: "Modifiez player-data.js pour créer un nouveau profil joueur."
     },
     es: {
       navProfile: "Perfil",
@@ -138,14 +140,15 @@
       cv: "CV PDF",
       photo: "Foto",
       open: "Abrir",
-      noContact: "Los datos de contacto están disponibles bajo solicitud."
+      noContact: "Información de contacto",
+      templateNote: "Edite player-data.js para crear un nuevo perfil de jugador."
     }
   };
 
   const languageSelector = document.getElementById("languageSelector");
 
   function hasPlayerData() {
-    return Boolean(DATA && DATA.player && DATA.player.name);
+    return Boolean(DATA && DATA.player);
   }
 
   function pathValue(path) {
@@ -194,6 +197,32 @@
     const trimmed = String(url).trim();
     if (/^(https?:|mailto:|tel:|assets\/|\.\/|\/)/i.test(trimmed)) return trimmed;
     return "";
+  }
+
+  function cssUrl(value) {
+    return `url("${String(value).replace(/"/g, "%22")}")`;
+  }
+
+  function renderHeroBackground() {
+    const hero = document.querySelector("[data-section='hero']");
+    const backgroundUrl = safeLink(DATA && (DATA.heroBackground || (DATA.media && DATA.media.heroBackground)));
+
+    if (!hero) return;
+    hero.classList.remove("has-hero-background");
+    hero.style.removeProperty("--hero-background-image");
+
+    if (!backgroundUrl) return;
+
+    const image = new Image();
+    image.onload = () => {
+      hero.style.setProperty("--hero-background-image", cssUrl(backgroundUrl));
+      hero.classList.add("has-hero-background");
+    };
+    image.onerror = () => {
+      hero.classList.remove("has-hero-background");
+      hero.style.removeProperty("--hero-background-image");
+    };
+    image.src = backgroundUrl;
   }
 
   function videoEmbedUrl(url) {
@@ -246,7 +275,7 @@
 
   function renderStaticBindings(lang) {
     const player = DATA.player || {};
-    const name = player.name || "Football Player";
+    const name = player.name || "Player Name";
     const title = DATA.meta && DATA.meta.siteTitle ? DATA.meta.siteTitle : `${name} | Football Recruitment CV`;
 
     document.title = title;
@@ -431,11 +460,18 @@
 
     const profileSection = document.querySelector("[data-section='profile']");
     profileSection.hidden = !hasValue(pathValue("content.recruitmentSummary")) && !hasValue(pathValue("player.roles"));
+
+    const careerSection = document.querySelector("[data-section='career']");
+    if (careerSection) {
+      const visibleCards = Array.from(careerSection.querySelectorAll("[data-field]")).some((card) => !card.hidden);
+      careerSection.hidden = !visibleCards;
+    }
   }
 
   function render(lang) {
     renderTranslations(lang);
     renderStaticBindings(lang);
+    renderHeroBackground();
     renderSnapshot(lang);
     renderRolesAndStrengths(lang);
     renderActions(lang);

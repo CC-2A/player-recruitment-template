@@ -1,6 +1,6 @@
 # Player Recruitment Template Guide
 
-This repository is a reusable static website template for football player recruitment CVs. It is designed for GitHub Pages and uses only HTML, CSS and JavaScript.
+This repository is a reusable static website template for football player recruitment CVs. It is designed for GitHub Pages and uses only HTML, CSS and JavaScript. The template is intentionally generic by default and can stay blank until `player-data.js` is edited.
 
 ## Files
 
@@ -8,17 +8,18 @@ This repository is a reusable static website template for football player recrui
 - `style.css` — visual design, responsive layout and mobile styling.
 - `app.js` — rendering logic, multilingual labels and automatic section hiding.
 - `player-data.js` — the only file you should usually edit for a new player.
+- `assets/photos/` — recommended folder for hero backgrounds and player photos.
 - `TEMPLATE_GUIDE.md` — this guide.
 
 ## Create a new player site
 
 1. Copy this repository or use it as a template for the new player.
 2. Open `player-data.js`.
-3. Replace the example player values with the new player information.
+3. Replace the generic placeholder values with the new player information.
 4. Keep the same object structure so `app.js` can render the page correctly.
 5. Leave optional fields as an empty string (`""`) or empty array (`[]`) if they should not appear.
 
-Sections and buttons hide automatically when their related data is empty, so you can safely omit media, PDFs, photos or contact methods until they are ready.
+Sections and buttons hide automatically when their related data is empty, so you can safely omit media, PDFs, photos or contact methods until they are ready. The default public page uses clean labels such as `Player Name`, `Main Position`, `Current Club`, `Recruitment Summary`, `Career Summary`, `Key Strengths` and `Contact Information` so the site looks intentional rather than broken while it is still blank.
 
 ## Edit player information
 
@@ -42,6 +43,7 @@ All player-specific fields live in `player-data.js`, including:
 - Academic / eligibility information
 - Video links
 - CV PDF links
+- Hero background image
 - Photos
 - Phone / WhatsApp
 - Email
@@ -59,6 +61,23 @@ heroHeadline: {
 }
 ```
 
+
+## Hero background photo
+
+The hero section can use a player-specific background photo while keeping the text readable with a dark overlay. Configure it in `player-data.js`:
+
+```js
+heroBackground: "assets/photos/hero-background.jpg"
+```
+
+Recommended steps:
+
+1. Place the image in `assets/photos/`.
+2. Use `assets/photos/hero-background.jpg` for the default path, or choose another lowercase filename such as `assets/photos/player-hero.webp`.
+3. Update the `heroBackground` value in `player-data.js` to match the image path.
+
+If the field is empty or the image file is not present, the site automatically keeps the built-in CSS football pitch / stadium-style background. This makes it safe to publish the template before a final hero photo is available.
+
 ## Photos
 
 Recommended folder:
@@ -67,7 +86,7 @@ Recommended folder:
 assets/photos/
 ```
 
-Add images to that folder, then update the `media.photos` array in `player-data.js`:
+Place player photos in `assets/photos/`, then update the `media.photos` array in `player-data.js`:
 
 ```js
 photos: [
