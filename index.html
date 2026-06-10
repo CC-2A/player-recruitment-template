@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reusable multilingual football player recruitment CV website template.">
+  <title>Football Player Recruitment CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span class="brand-mark" aria-hidden="true">⚽</span>
+        <span class="brand-text" data-bind="name">Player Profile</span>
+      </a>
+      <nav class="nav-links" aria-label="Section navigation">
+        <a href="#profile" data-i18n="navProfile">Profile</a>
+        <a href="#career" data-i18n="navCareer">Career</a>
+        <a href="#media" data-i18n="navMedia">Video</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+      </nav>
+      <label class="language-control">
+        <span class="sr-only" data-i18n="languageLabel">Language</span>
+        <select id="languageSelector" aria-label="Language selector">
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="es">ES</option>
+        </select>
+      </label>
+    </header>
+
+    <main id="top">
+      <section class="hero section" data-section="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="eyebrow">Recruitment CV</p>
+          <h1 data-bind="name">Player Name</h1>
+          <p class="hero-position" data-bind-i18n="player.position">Position</p>
+          <p class="hero-headline" data-bind-i18n="content.heroHeadline"></p>
+          <div class="hero-actions" id="heroActions"></div>
+        </div>
+        <aside class="hero-card" aria-label="Player snapshot">
+          <div class="pitch-lines" aria-hidden="true"></div>
+          <div class="avatar" data-initials></div>
+          <dl id="snapshotList" class="snapshot-list"></dl>
+        </aside>
+      </section>
+
+      <section id="profile" class="section split-section" data-section="profile">
+        <div>
+          <p class="eyebrow" data-i18n="profileEyebrow">Profile</p>
+          <h2 data-i18n="profileTitle">Recruitment summary</h2>
+        </div>
+        <div class="content-card">
+          <p data-bind-i18n="content.recruitmentSummary"></p>
+          <div class="tag-list" id="roleTags"></div>
+        </div>
+      </section>
+
+      <section id="career" class="section grid-section" data-section="career">
+        <div class="content-card feature-card" data-field="content.careerSummary">
+          <p class="eyebrow" data-i18n="careerEyebrow">Career</p>
+          <h2 data-i18n="careerTitle">Career summary</h2>
+          <p data-bind-i18n="content.careerSummary"></p>
+        </div>
+        <div class="content-card" data-field="content.playingStyle">
+          <p class="eyebrow" data-i18n="styleEyebrow">Style</p>
+          <h2 data-i18n="styleTitle">Playing style</h2>
+          <p data-bind-i18n="content.playingStyle"></p>
+        </div>
+        <div class="content-card" data-field="content.strengths">
+          <p class="eyebrow" data-i18n="strengthsEyebrow">Strengths</p>
+          <h2 data-i18n="strengthsTitle">Key strengths</h2>
+          <ul class="check-list" id="strengthsList"></ul>
+        </div>
+        <div class="content-card" data-field="content.academicsEligibility">
+          <p class="eyebrow" data-i18n="academicEyebrow">Academics</p>
+          <h2 data-i18n="academicTitle">Academic / eligibility</h2>
+          <p data-bind-i18n="content.academicsEligibility"></p>
+        </div>
+      </section>
+
+      <section id="media" class="section" data-section="media">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="mediaEyebrow">Media</p>
+          <h2 data-i18n="mediaTitle">Video, CV and photos</h2>
+        </div>
+        <div class="media-grid" id="mediaGrid"></div>
+      </section>
+
+      <section id="contact" class="section contact-section" data-section="contact">
+        <div>
+          <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
+          <h2 data-i18n="contactTitle">Recruitment contact</h2>
+          <p data-i18n="contactText">Use the available links below to request video, CV details or arrange a conversation.</p>
+        </div>
+        <div class="contact-card" id="contactCard"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span data-bind="name">Player Name</span>
+      <span>·</span>
+      <span data-i18n="footerText">Reusable recruitment website template</span>
+    </footer>
+  </div>
+
+  <script src="player-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
