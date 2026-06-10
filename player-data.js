@@ -50,7 +50,7 @@ window.PLAYER_DATA = {
     contact: {
       phone: "",
       whatsapp: "",
-      email: "",
+      email: "recruitment@example.com",
       onlineProfileUrl: ""
     }
   },
@@ -95,7 +95,12 @@ window.PLAYER_DATA = {
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       }
     ],
-    cvPdfs: [],
+    cvPdfs: [
+      {
+        title: "Rayan Cappai recruitment CV",
+        url: "assets/cv/rayan-cappai-cv.pdf"
+      }
+    ],
     photos: []
   }
 };

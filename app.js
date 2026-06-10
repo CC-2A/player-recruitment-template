@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const DATA = window.PLAYER_DATA || {};
+  let DATA = null;
   const SUPPORTED_LANGUAGES = ["en", "fr", "es"];
 
   const labels = {
@@ -144,6 +144,10 @@
 
   const languageSelector = document.getElementById("languageSelector");
 
+  function hasPlayerData() {
+    return Boolean(DATA && DATA.player && DATA.player.name);
+  }
+
   function pathValue(path) {
     return path.split(".").reduce((value, key) => (value && value[key] !== undefined ? value[key] : undefined), DATA);
   }
@@ -232,6 +236,8 @@
       const key = element.getAttribute("data-i18n");
       element.textContent = labels[lang][key] || labels.en[key] || "";
     });
+    if (!hasPlayerData()) return;
+
     document.querySelectorAll("[data-bind-i18n]").forEach((element) => {
       const value = localized(pathValue(element.getAttribute("data-bind-i18n")), lang);
       element.textContent = Array.isArray(value) ? value.join(", ") : value;
@@ -439,21 +445,38 @@
   }
 
   function initialLanguage() {
-    const configured = DATA.meta && DATA.meta.defaultLanguage;
+    const configured = DATA && DATA.meta && DATA.meta.defaultLanguage;
     const saved = window.localStorage.getItem("playerRecruitmentLanguage");
     const browser = navigator.language ? navigator.language.slice(0, 2).toLowerCase() : "";
     return [saved, configured, browser, "en"].find((lang) => SUPPORTED_LANGUAGES.includes(lang)) || "en";
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    DATA = window.PLAYER_DATA || null;
     const lang = initialLanguage();
-    languageSelector.value = lang;
-    render(lang);
 
-    languageSelector.addEventListener("change", (event) => {
-      const nextLang = event.target.value;
-      window.localStorage.setItem("playerRecruitmentLanguage", nextLang);
-      render(nextLang);
-    });
+    if (languageSelector) {
+      languageSelector.value = lang;
+    }
+
+    if (hasPlayerData()) {
+      render(lang);
+    } else {
+      renderTranslations(lang);
+      document.documentElement.classList.add("static-fallback");
+      console.warn("PLAYER_DATA was not found. Leaving the static example content visible.");
+    }
+
+    if (languageSelector) {
+      languageSelector.addEventListener("change", (event) => {
+        const nextLang = event.target.value;
+        window.localStorage.setItem("playerRecruitmentLanguage", nextLang);
+        if (hasPlayerData()) {
+          render(nextLang);
+        } else {
+          renderTranslations(nextLang);
+        }
+      });
+    }
   });
 }());
